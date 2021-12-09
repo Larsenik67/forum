@@ -16,16 +16,38 @@ class ForumController extends AbstractController
         ]);
     }
 
-     //?ctrl=store&action=product&id=XX
+    //?ctrl=forum&action=categories&id=XX
+    public function categories($id)
+    {
+        $smanager = new ForumManager();
+        $sujets = $smanager->findAllSubject($id);
+        
+        return $this->render("forum/categorie.php", [
+            "sujets" => $sujets
+        ]);
+    }
+
+    //?ctrl=forum&action=sujets&id=XX
+    public function sujets($id)
+    {
+        $mmanager = new ForumManager();
+        $messages = $mmanager->findAllMessage($id);
+        
+        return $this->render("forum/sujet.php", [
+            "messages" => $messages
+        ]);
+    }
+
+     /**?ctrl=forum&action=categories&id=XX
      public function product($id)
      {
          $manager = new ForumManager();
-         $product = $manager->findOneById($id);
+         $sujet = $manager->findOneById($id);
  
-         if(!$product) return false;
+         if(!$sujet) return false;
  
          return $this->render("forum/sujet.php", [
              "sujet" => $sujet
          ]);
-     }
+     }**/
 }
