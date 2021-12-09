@@ -4,7 +4,7 @@ define("DB_NAME", "forum");
 define("DB_USER", "root");
 define("DB_PASS", "");
 
-define("DEFAULT_CTRL", "");
+define("DEFAULT_CTRL", "forum");
 define("DEFAULT_METHOD", "index");
 
 define("VIEW_PATH", "view/");

@@ -1,10 +1,10 @@
 {
-    "name": "squalli/store",
+    "name": "larsenik/forum",
     "type": "project",
     "authors": [
         {
-            "name": "Squalli",
-            "email": "virgile.gibello@gmail.com"
+            "name": "Larsenik",
+            "email": "larsenrajaouistr@gmail.com"
         }
     ],
     "autoload": {
