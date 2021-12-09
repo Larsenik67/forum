@@ -7,9 +7,5 @@ interface ManagerInterface
 
     public function findAll();
 
-    public function findAllSubject($id);
-
-    public function findAllMessage($id);
-
     public function findOneById($id);
 }

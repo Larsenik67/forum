@@ -1,7 +1,7 @@
 <?php
 namespace App\Manager;
 
-class ForumManager extends AbstractManager implements ManagerInterface
+class SujetsManager extends AbstractManager implements ManagerInterface
 {
     public function __construct()
     {
@@ -11,11 +11,11 @@ class ForumManager extends AbstractManager implements ManagerInterface
     public function findAll()
     {
         return $this::getResults(
-            "App\\Entity\\Categories",
-            "SELECT * FROM categories WHERE statut = 0"
+            "App\\Entity\\Sujets",
+            "SELECT * FROM sujets" 
         );
     }
-
+    
     public function findAllSubject($id)
     {
         return $this::getResults(
@@ -27,22 +27,11 @@ class ForumManager extends AbstractManager implements ManagerInterface
         );
     }
 
-    public function findAllMessage($id)
-    {
-        return $this::getResults(
-            "App\\Entity\\Messages",
-            "SELECT * FROM messages WHERE statut = 0 AND sujet_id = :id",
-            [
-                ":id" => $id
-            ]
-        );
-    }
-
     public function findOneById($id)
     {
         return $this::getOneOrNullResult(
-            "App\\Entity\\Product",
-            "SELECT * FROM product WHERE id = :id AND statut = 0",
+            "App\\Entity\\Sujets",
+            "SELECT * FROM sujets WHERE id = :id",
             [
                 ":id" => $id
             ]

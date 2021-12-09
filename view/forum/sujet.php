@@ -1,7 +1,11 @@
 <?php
     $messages = $response["data"]["messages"];
+    $sujets = $response["data"]["sujets"];
 ?>
 <section class="products">
+                <h1>
+                    <?= $sujets->getNom() ?>
+                </h1><hr>
     <?php  
         foreach($messages as $msg)
         {

@@ -6,8 +6,8 @@ class Sujets extends AbstractEntity
     private $id;
     private $nom;
     private $date;
-    private $membre_id;
-    private $categories_id;
+    protected $membres;
+    protected $categories;
 
     /**
      * Get the value of id
@@ -36,16 +36,16 @@ class Sujets extends AbstractEntity
     /**
      * Get the value of membre_id
      */ 
-    public function getMembre_id()
+    public function getMembres()
     {
-        return $this->membre_id;
+        return $this->membres;
     }
 
     /**
      * Get the value of categories_id
      */ 
-    public function getCategories_id()
+    public function getCategories()
     {
-        return $this->categories_id;
+        return $this->categories;
     }
 }

@@ -1,14 +1,17 @@
 <?php 
 namespace App\Controller;
 
-use App\Manager\ForumManager;
+use App\Manager\CategoriesManager;
+use App\Manager\SujetsManager;
+use App\Manager\MessagesManager;
+
 
 class ForumController extends AbstractController
 {
     //?ctrl=forum&action=index
     public function index()
     {
-        $fmanager = new ForumManager();
+        $fmanager = new CategoriesManager();
         $categories = $fmanager->findAll();
         
         return $this->render("forum/home.php", [
@@ -19,7 +22,7 @@ class ForumController extends AbstractController
     //?ctrl=forum&action=categories&id=XX
     public function categories($id)
     {
-        $smanager = new ForumManager();
+        $smanager = new SujetsManager();
         $sujets = $smanager->findAllSubject($id);
         
         return $this->render("forum/categorie.php", [
@@ -30,11 +33,15 @@ class ForumController extends AbstractController
     //?ctrl=forum&action=sujets&id=XX
     public function sujets($id)
     {
-        $mmanager = new ForumManager();
+        $mmanager = new MessagesManager();
         $messages = $mmanager->findAllMessage($id);
-        
+
+        $smanager = new SujetsManager();
+        $sujets = $smanager->findOneById($id);
+
         return $this->render("forum/sujet.php", [
-            "messages" => $messages
+            "messages" => $messages,
+            "sujets" => $sujets
         ]);
     }
 

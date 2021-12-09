@@ -9,7 +9,7 @@
             <div class="products__item">
                 <h2>
                     <a href="?ctrl=forum&action=categories&id=<?= $cat->getId() ?>">
-                        <?= $cat->getName() ?>
+                        <?= $cat->getNom() ?>
                     </a>
                 </h2>
             </div>

@@ -6,8 +6,8 @@ class Messages extends AbstractEntity
     private $id;
     private $contenu;
     private $date;
-    private $membre_id;
-    private $sujet_id;
+    protected $membres;
+    protected $sujets;
 
 
     /**
@@ -37,16 +37,16 @@ class Messages extends AbstractEntity
     /**
      * Get the value of membre_id
      */ 
-    public function getMembre_id()
+    public function getMembres()
     {
-        return $this->membre_id;
+        return $this->membres;
     }
 
     /**
      * Get the value of sujet_id
      */ 
-    public function getSujet_id()
+    public function getSujets()
     {
-        return $this->sujet_id;
+        return $this->sujets;
     }
 }
