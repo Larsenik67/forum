@@ -58,7 +58,7 @@ body{
 }
 
 .icone>a>i {
-    font-size: 80px;
+    font-size: 50px;
     margin: 0px 50px 0px 50px;
     color: rgb(125, 166, 255);
     text-decoration: none;
@@ -73,7 +73,7 @@ body{
 }
 
 .search>input {
-    width: 800px;
+    width: 500px;
 }
 
 main {

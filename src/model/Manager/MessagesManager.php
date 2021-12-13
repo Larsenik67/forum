@@ -37,4 +37,16 @@ class MessagesManager extends AbstractManager implements ManagerInterface
             ]
         );
     }
+
+    public function insertMessage($contenu, $user_id, $sujets_id){
+        return $this::executeQuery(
+            "INSERT INTO messages (contenu, user_id, sujets_id) VALUES (:c, :ui, :si)",
+            [
+                ":c" => $contenu,
+                ":ui" => $user_id,
+                ":si" => $sujets_id
+            ]
+        );
+    }
+
 }

@@ -10,8 +10,7 @@
                     <?= $sujets->getNom() ?>
                 </h1><hr>
     <?php  
-        foreach($messages as $msg)
-        {
+        foreach($messages as $msg){
         ?>
             <div>
                 <?= $msg->getContenu() ?><br>
@@ -19,5 +18,10 @@
             </div>
         <?php 
         }
-    ?>
+        ?>
+<form action="?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="POST">
+            <label for="message">Message : </label>
+            <textarea name="message" id="message" cols="100" rows="10"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
 </section>
