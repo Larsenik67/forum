@@ -5,6 +5,7 @@ class Categories extends AbstractEntity
 {
     private $id;
     private $nom;
+    private $statut;
 
     /**
      * Get the value of id
@@ -20,5 +21,13 @@ class Categories extends AbstractEntity
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Get the value of statut
+     */ 
+    public function getStatut()
+    {
+        return $this->statut;
     }
 }

@@ -46,7 +46,7 @@ use App\Service\Session;
                          
                     ?>
 
-                    <a href="?ctrl=admin">
+                    <a href="?ctrl=admin&action=index">
                         <i class="fas fa-users-cog"></i>
                     </a>
 

@@ -132,3 +132,14 @@ main {
     margin: auto;
     text-align: center;
 }
+
+.admin {
+    width: 100%;
+    justify-content: center;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    border: 2px solid blue;
+}
