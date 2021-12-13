@@ -11,8 +11,8 @@ class ForumController extends AbstractController
     //?ctrl=forum&action=index
     public function index()
     {
-        $fmanager = new CategoriesManager();
-        $categories = $fmanager->findAll();
+        $cmanager = new CategoriesManager();
+        $categories = $cmanager->findAll();
         
         return $this->render("forum/home.php", [
             "categories" => $categories
@@ -41,20 +41,7 @@ class ForumController extends AbstractController
 
         return $this->render("forum/sujet.php", [
             "messages" => $messages,
-            "sujets" => $sujets
+            "sujets" => $sujets,
         ]);
     }
-
-     /**?ctrl=forum&action=categories&id=XX
-     public function product($id)
-     {
-         $manager = new ForumManager();
-         $sujet = $manager->findOneById($id);
- 
-         if(!$sujet) return false;
- 
-         return $this->render("forum/sujet.php", [
-             "sujet" => $sujet
-         ]);
-     }**/
 }

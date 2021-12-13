@@ -2,7 +2,10 @@
     $messages = $response["data"]["messages"];
     $sujets = $response["data"]["sujets"];
 ?>
-<section class="products">
+<section>
+<a href="?ctrl=forum&action=categories&id=<?= $sujets->getCategories()->getId() ?>">
+                        Retour
+        </a>
                 <h1>
                     <?= $sujets->getNom() ?>
                 </h1><hr>
@@ -10,7 +13,7 @@
         foreach($messages as $msg)
         {
         ?>
-            <div class="products__item">
+            <div>
                 <?= $msg->getContenu() ?><br>
                 <?= $msg->getDate() ?><hr>
             </div>

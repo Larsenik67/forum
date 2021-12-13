@@ -1,5 +1,7 @@
 <?php
 
+use App\Service\Session;
+
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +24,47 @@
             </div>
             <div class="navigation">
                 <div class="icone">
-                    <i class="fa-solid fa-list"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-user"></i>
-                    <i class="fa-solid fa-envelope"></i>
-                    <i class="fa-solid fa-bell"></i>
+                    <a href="?ctrl=forum">
+                        <i class="fa-solid fa-list"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-solid fa-star"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-solid fa-bell"></i>
+                    </a>
+
+                    <?php 
+                        if($user = Session::get("user")){
+                            if($user->getRole() == "ROLE_ADMIN"){
+                         
+                    ?>
+
+                    <a href="?ctrl=admin">
+                        <i class="fas fa-users-cog"></i>
+                    </a>
+
+                    <?php } ?>
+
+                    <a href="?ctrl=security&action=logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+
+                    <?php }else{
+                    ?>
+
+                    <a href="?ctrl=security&action=login">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+
+                        <?php } ?>
+
                 </div>
                 <div class="search">
                     <button>Recherche</button>
