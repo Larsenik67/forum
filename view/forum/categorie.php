@@ -1,17 +1,23 @@
 <?php
     $sujets = $response["data"]["sujets"];
 ?>
-<section class="products">
+<section>
     <?php  
         foreach($sujets as $sujet)
         {
         ?>
-            <div class="products__item">
-                <h2>
+            <div class="sujets">
+                <div class="sujet">
                     <a href="?ctrl=forum&action=sujets&id=<?= $sujet->getId() ?>">
                         <?= $sujet->getNom() ?>
                     </a>
-                </h2>
+                </div>
+                <div class="sujet">
+                    Nb de réponse
+                </div>
+                <div class="sujet">
+                    Nb de vues
+                </div>
             </div>
         <?php 
         }
