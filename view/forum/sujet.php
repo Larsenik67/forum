@@ -19,9 +19,9 @@
         <?php 
         }
         ?>
-<form action="?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="POST">
+    <form action="?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="POST">
             <label for="message">Message : </label>
             <textarea name="message" id="message" cols="100" rows="10"></textarea>
             <button type="submit">Envoyer</button>
-        </form>
+    </form>
 </section>

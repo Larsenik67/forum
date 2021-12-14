@@ -37,4 +37,15 @@ class SujetsManager extends AbstractManager implements ManagerInterface
             ]
         );
     }
+
+    public function updateSujet($statut, $id)
+    {
+        return $this::executeQuery(
+            "UPDATE sujets SET statut = :s WHERE id = :id",
+            [
+                ":s" => $statut,
+                ":id" => $id
+            ]
+        );
+    }
 }

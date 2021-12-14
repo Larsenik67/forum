@@ -139,7 +139,7 @@ main {
 }
 
 table {
+    margin: 50px auto 50px auto !important;
     text-align: center;
-    margin: auto;
     border: 2px solid blue;
 }

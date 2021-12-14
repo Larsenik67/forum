@@ -49,4 +49,14 @@ class MessagesManager extends AbstractManager implements ManagerInterface
         );
     }
 
+    public function updateMessage($statut, $id)
+    {
+        return $this::executeQuery(
+            "UPDATE messages SET statut = :s WHERE id = :id",
+            [
+                ":s" => $statut,
+                ":id" => $id
+            ]
+        );
+    }
 }

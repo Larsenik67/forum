@@ -35,14 +35,14 @@ class AdminController extends AbstractController
         if(!$this->isGranted("ROLE_ADMIN")) return false;
 
         if(Form::isSubmitted()){
-            $nom = Form::getData("name", "text");
+            $nom = Form::getData("message", "text");
 
             if($nom){
                 $manager = new CategoriesManager();
-                if($newId = $manager->insertCategories($name, $text)){ //REPREND TON TAFF ICI ! (tu doit crée InsertCategories)
+                if($manager->insertCategories($nom)){ 
                     
                     $this->addFlash("success", "Le produit est entré en base de données !!");
-                    return $this->redirect("?ctrl=store&action=product&id=$newId");
+                    return $this->redirect("?ctrl=admin");
                 }
                 else $this->addFlash("error", "Erreur de BDD !!");
             }
@@ -53,52 +53,78 @@ class AdminController extends AbstractController
         else return false;
     }
 
-    public function updateProduct($id)
+    //?ctrl=admin&action=disableCategorie
+    public function disableCategorie()
     {
         if(!$this->isGranted("ROLE_ADMIN")) return false;
 
-        $pmanager = new ProductManager();
-
         if(Form::isSubmitted()){
-            $name = Form::getData("name", "text");
-            $price = Form::getData("price", "float", FILTER_FLAG_ALLOW_FRACTION);
-            $descr = Form::getData("descr", "text");
-            $cat_id = Form::getData("category", "int");
+            $id = Form::getData("id", "int");
+            $statut = Form::getData("statut", "int");
 
-            if($name && $price && $descr && $cat_id){
-            
-                if($pmanager->updateProduct($id, $name, $price, $descr, $cat_id)){
-                    $this->addFlash("success", "Le produit ".$name." a été modifié avec succès !!");
+            if($id && isset($statut)){
+                $manager = new categoriesManager();
+                if($manager->updateCategorie($statut, $id)){ 
+                    
+                    $this->addFlash("success", "Le produit est entré en base de données !!");
                     return $this->redirect("?ctrl=admin");
                 }
                 else $this->addFlash("error", "Erreur de BDD !!");
             }
             else $this->addFlash("error", "Veuillez vérifier les données du formulaire");
+
+            return $this->redirect("?ctrl=admin");
         }
-        $products = $pmanager->findAll();
-
-        $cmanager = new CategoryManager();
-        $categories = $cmanager->findAll();
-        
-        $product = $pmanager->findOneById($id);
-
-        return $this->render("admin/home.php", [
-            "products"     => $products,
-            "prodToUpdate" => $product,
-            "categories"   => $categories
-        ]);
+        else return false;
     }
 
-    public function deleteProduct($id){
+    //?ctrl=admin&action=disableSujet
+    public function disableSujet()
+    {
+        if(!$this->isGranted("ROLE_ADMIN")) return false;
 
-        $manager = new ProductManager();
-        $product = $manager->findOneById($id);
+        if(Form::isSubmitted()){
+            $id = Form::getData("id", "int");
+            $statut = Form::getData("statut", "int");
 
-        if($manager->deleteProduct($id)){
-            $this->addFlash("success", "Le produit ".$product->getName()." a été supprimé avec succès !!");
+            if($id && isset($statut)){
+                $manager = new SujetsManager();
+                if($manager->updateSujet($statut, $id)){ 
+                    
+                    $this->addFlash("success", "Le produit est entré en base de données !!");
+                    return $this->redirect("?ctrl=admin");
+                }
+                else $this->addFlash("error", "Erreur de BDD !!");
+            }
+            else $this->addFlash("error", "Veuillez vérifier les données du formulaire");
+
+            return $this->redirect("?ctrl=admin");
         }
-        else $this->addFlash("error", "Erreur de BDD !!");
+        else return false;
+    }
 
-        return $this->redirect("?ctrl=admin");
+    //?ctrl=admin&action=disableMessage
+    public function disableMessage()
+    {
+        if(!$this->isGranted("ROLE_ADMIN")) return false;
+
+        if(Form::isSubmitted()){
+            $id = Form::getData("id", "int");
+            $statut = Form::getData("statut", "int");
+
+            if($id && isset($statut)){
+                $manager = new MessagesManager();
+                if($manager->updateMessage($statut, $id)){ 
+                    
+                    $this->addFlash("success", "Le produit est entré en base de données !!");
+                    return $this->redirect("?ctrl=admin");
+                }
+                else $this->addFlash("error", "Erreur de BDD !!");
+            }
+            else $this->addFlash("error", "Veuillez vérifier les données du formulaire");
+
+            return $this->redirect("?ctrl=admin");
+        }
+        else return false;
     }
 }

@@ -14,7 +14,7 @@ class ForumController extends AbstractController
     public function index()
     {
         $cmanager = new CategoriesManager();
-        $categories = $cmanager->findAll();
+        $categories = $cmanager->findAllCategorie();
         
         return $this->render("forum/home.php", [
             "categories" => $categories
