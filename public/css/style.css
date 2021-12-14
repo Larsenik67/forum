@@ -114,6 +114,10 @@ main {
     margin: 10px 0px 10px 0px;
 }
 
+.newSujet {
+    margin-left: 92%;
+}
+
 .sujets {
     width: 100%;
     margin: 10px 0px 10px 0px;
@@ -134,12 +138,30 @@ main {
 }
 
 .admin {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+form>button {
+    margin-top: 10px;
 }
 
 table {
     margin: 50px auto 50px auto !important;
     text-align: center;
     border: 2px solid blue;
+}
+
+hr {
+    margin: 50px 0px 15px 0px;
 }

@@ -1,11 +1,17 @@
 <?php
     $sujets = $response["data"]["sujets"];
+    $categorie = $response["data"]["categorie"];
 ?>
 <section>
     <div class="retour">
         <a href="?ctrl=forum">
             Retour
         </a>
+        <span class="newSujet">
+            <a href="?ctrl=forum&action=newSujets&id=<?= $categorie->getId() ?>">
+                Nouveau
+            </a>
+        </span>
     </div>
     <?php  
         foreach($sujets as $sujet)
