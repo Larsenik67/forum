@@ -19,9 +19,8 @@
         <?php 
         }
         ?>
-    <form action="?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="POST">
-            <label for="message">Message : </label>
-            <textarea name="message" id="message" cols="100" rows="10"></textarea>
+    <form class="tinymce" action="?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="POST">
+            <textarea name="message" id="message"></textarea>
             <button type="submit">Envoyer</button>
     </form>
 </section>
